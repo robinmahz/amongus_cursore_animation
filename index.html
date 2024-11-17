@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flair {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <div class="flair flair--3">
+      <img src="./amongus.gif" alt="" style="height: 5rem" />
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      gsap.set(".flair", { xPercent: -50, yPercent: -50 });
+
+      let xTo = gsap.quickTo(".flair", "x", { duration: 0.6, ease: "power3" }),
+        yTo = gsap.quickTo(".flair", "y", { duration: 0.6, ease: "power3" });
+
+      window.addEventListener("mousemove", (e) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      });
+    });
+  </script>
+</html>
